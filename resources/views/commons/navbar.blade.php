@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
-                {{-- メッセージ作成ページへのリンク --}}
+                {{-- タスク作成ページへのリンク --}}
             </ul>
         </div>
     </nav>
