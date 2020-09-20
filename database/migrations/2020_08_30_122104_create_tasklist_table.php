@@ -15,8 +15,12 @@ class CreateTasklistTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
             $table->string('content');
             $table->timestamps();
+
+            // 外部キー制約
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -27,6 +31,10 @@ class CreateTasklistTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tasks');
+        // 課題の外部キーの削除とユーザIDの削除（試作）
+        Schema::dropIfExists('tasks', function($table){
+            $table->dropForeign('tasks_user_id_foreign');
+            $table->dropColumn('user_id');
+        });
     }
 }
