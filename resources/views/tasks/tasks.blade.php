@@ -3,7 +3,6 @@
         @foreach ($tasks as $task)
             <li class="media mb-3">
                 <div class="media-body">
-
                     <div>
                         {{-- 投稿内容 --}}
                         <p class="mb-0">{!! nl2br(e($task->content)) !!}</p>
@@ -14,4 +13,4 @@
     </ul>
     {{-- ページネーションのリンク --}}
     {{ $tasks->links() }}
-@endifcxa
+@endif
